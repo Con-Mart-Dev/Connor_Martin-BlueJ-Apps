@@ -7,29 +7,109 @@
  * if enough money has been input.
  * 
  * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29
- * 
- * Modified by Student Name
+ * @version 2011.07.31
  */
 public class TicketMachine
 {
     // The price of a ticket from this machine.
+    public static final Ticket AYLESBURY_TICKET = new Ticket("Aylesbury", 220);
+    public static final Ticket AMERSHAM_TICKET = new Ticket("Aylesbury", 300);
+    public static final Ticket WYCOMBE_TICKET = new Ticket("Aylesbury", 330);
+    
+    private Ticket currentTicket;
+    
     private int price;
     // The amount of money entered by a customer so far.
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
+    
 
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost)
+    public TicketMachine()
     {
-        price = cost;
+        currentTicket=null;
         balance = 0;
         total = 0;
     }
 
+    public void addAylesbury()
+    {
+        currentTicket =AYLESBURY_TICKET;
+    }
+    
+    public void addAmersham()
+    {
+        currentTicket =AMERSHAM_TICKET;
+    }
+    
+    public void addWycombe()
+    {
+        currentTicket =WYCOMBE_TICKET;
+    }
+    
+    public void balanceUpdate(int cash)
+    {
+        balance = balance + cash;
+        
+        System.out.println("Cash In"+cash);
+        
+    }
+    
+    public void displayBalance()
+    {
+        System.out.println("Your Balance:"+ balance);
+    }
+   
+    public void insert10()
+    {
+        balanceUpdate(10);
+    }
+    
+    public void insert20()
+    {
+        balanceUpdate(20);
+    }
+    
+    public void insert100()
+    {
+        balanceUpdate(100);
+    }
+    
+    public void insert200()
+    {
+        balanceUpdate(200);
+    }
+    
+    public void insertCoin(Coin aCoin)
+    {
+        balanceUpdate(aCoin.getValue());
+    }
+    
+    public void insertACoin(int value)
+    {
+        switch(value)
+        {
+            case 10: 
+                balanceUpdate(value);
+                break;
+            case 20: 
+                balanceUpdate(value);
+                break;
+            case 100: 
+                balanceUpdate(value);
+                break;
+            case 200: 
+                balanceUpdate(value);
+                break;
+
+            default:
+                System.out.println(value+" Not Valid coin");
+        }
+    }
+    
     /**
      * @Return The price of a ticket.
      */
@@ -53,12 +133,10 @@ public class TicketMachine
      */
     public void insertMoney(int amount)
     {
-        if(amount > 0) 
-        {
+        if(amount > 0) {
             balance = balance + amount;
         }
-        else 
-        {
+        else {
             System.out.println("Use a positive amount rather than: " +
                                amount);
         }
@@ -71,8 +149,7 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        if(balance >= price) 
-        {
+        if(balance >= price) {
             // Simulate the printing of a ticket.
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
@@ -83,11 +160,10 @@ public class TicketMachine
 
             // Update the total collected with the price.
             total = total + price;
-            // Reduce the balance by the price.
+            // Reduce the balance by the prince.
             balance = balance - price;
         }
-        else 
-        {
+        else {
             System.out.println("You must insert at least: " +
                                (price - balance) + " more cents.");
                     
