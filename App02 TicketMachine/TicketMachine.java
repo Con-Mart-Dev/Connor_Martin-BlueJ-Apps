@@ -1,3 +1,4 @@
+
 /**
  * TicketMachine models a ticket machine that issues
  * flat-fare tickets.
@@ -6,18 +7,18 @@
  * sensible amounts of money, and will only print a ticket
  * if enough money has been input.
  * 
- * @author David J. Barnes and Michael Kölling
- * @version 2011.07.31
+ * @author Connor Joesph Martin
+ * @version 2020.10.24
  */
 public class TicketMachine
 {
     // The price of a ticket from this machine.
     public static final Ticket AYLESBURY_TICKET = new Ticket("Aylesbury", 220);
-    public static final Ticket AMERSHAM_TICKET = new Ticket("Aylesbury", 300);
-    public static final Ticket WYCOMBE_TICKET = new Ticket("Aylesbury", 330);
-    
+    public static final Ticket AMERSHAM_TICKET = new Ticket("Amersham", 300);
+    public static final Ticket WYCOMBE_TICKET = new Ticket("High Wycombe", 330);
+    // To decide which ticket is the current one selected
     private Ticket currentTicket;
-    
+    // The price of a specific ticket
     private int price;
     // The amount of money entered by a customer so far.
     private int balance;
@@ -35,21 +36,36 @@ public class TicketMachine
         total = 0;
     }
 
+    /**
+     * To allow current ticket to pick one out of 
+     * three via suggesting this is a choice
+     */
     public void addAylesbury()
     {
         currentTicket =AYLESBURY_TICKET;
     }
     
+    /**
+     * To allow current ticket to pick one out of 
+     * three via suggesting this is a choice
+     */
     public void addAmersham()
     {
         currentTicket =AMERSHAM_TICKET;
     }
     
+    /**
+     * To allow current ticket to pick one out of 
+     * three via suggesting this is a choice
+     */
     public void addWycombe()
     {
         currentTicket =WYCOMBE_TICKET;
     }
     
+    /**
+     * To update the current balance
+     */
     public void balanceUpdate(int cash)
     {
         balance = balance + cash;
@@ -58,36 +74,58 @@ public class TicketMachine
         
     }
     
+    /**
+     * To display current balance you have before or after purchasing a 
+     * ticket
+     */
     public void displayBalance()
     {
         System.out.println("Your Balance:"+ balance);
     }
    
+     /**
+     * To insert 10 coins
+     */
     public void insert10()
     {
         balanceUpdate(10);
     }
     
+    /**
+     * To insert 20 coins
+     */
     public void insert20()
     {
         balanceUpdate(20);
     }
     
+    /**
+     * To insert 100 coins
+     */
     public void insert100()
     {
         balanceUpdate(100);
     }
     
+    /**
+     * To insert 200 coins
+     */
     public void insert200()
     {
         balanceUpdate(200);
     }
     
-    public void insertCoin(Coin aCoin)
+    /**
+     * To insert a specific amount of coins without putting them individually
+     */
+        public void insertCoins(Coin aCoin)
     {
         balanceUpdate(aCoin.getValue());
     }
     
+    /**
+     * Which amount of coins are valid to input 
+     */
     public void insertACoin(int value)
     {
         switch(value)
@@ -106,7 +144,7 @@ public class TicketMachine
                 break;
 
             default:
-                System.out.println(value+" Not Valid coin");
+                System.out.println(value+" Not Valid cents");
         }
     }
     
@@ -153,7 +191,7 @@ public class TicketMachine
             // Simulate the printing of a ticket.
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
-            System.out.println("# Ticket");
+            System.out.println("#  Ticket   ");
             System.out.println("# " + price + " cents.");
             System.out.println("##################");
             System.out.println();
