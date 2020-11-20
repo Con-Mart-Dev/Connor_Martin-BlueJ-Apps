@@ -1,0 +1,42 @@
+Course course1 = new Course("Programming", "251");
+course1.print();
+ Course: Programming Number: 251
+Course course1 = new Course("Test", "452");
+course1.print();
+Course: Test Number: 452
+Course course1 = new Course("Programming", "453");
+Student student1 = new Student("David", "1221");
+Student student2 = new Student("Jack", "1222");
+Student student3 = new Student("Carl", "1223");
+student1.addCourse(course1);
+student2.addCourse(course1);
+student3.addCourse(course1);
+student1.print();
+David, student ID: 1221, credits: 0
+Course: Programming Number: 453
+student2.print();
+Jack, student ID: 1222, credits: 0
+Course: Programming Number: 453
+student3.print();
+Carl, student ID: 1223, credits: 0
+Course: Programming Number: 453
+LabClass labClass1 = new LabClass(3);
+labClass1.printList();
+Lab class unknown
+Instructor: unknown   Room: unknown
+Class list:
+Number of students: 0
+labClass1.enrollStudent(student3);
+labClass1.enrollStudent(student2);
+labClass1.enrollStudent(student1);
+labClass1.printList();
+Lab class unknown
+Instructor: unknown   Room: unknown
+Class list:
+Carl, student ID: 1223, credits: 0
+Course: Programming Number: 453
+Jack, student ID: 1222, credits: 0
+Course: Programming Number: 453
+David, student ID: 1221, credits: 0
+Course: Programming Number: 453
+Number of students: 3
