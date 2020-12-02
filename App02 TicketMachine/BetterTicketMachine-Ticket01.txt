@@ -1,0 +1,47 @@
+TicketMachine ticket = new TicketMachine();
+Ticket ticket1 = new Ticket("null", 2);
+ticket.insert10();
+Received 10 pence
+Your Balance:10
+ticket.insert20();
+Received 20 pence
+Your Balance:30
+ticket.insert100();
+Received 100 pence
+Your Balance:130
+ticket.insert200();
+Received 200 pence
+Your Balance:330
+ticket.addAmersham();
+ticket.displayBalance();
+Your Balance:330
+ticket.refundBalance()
+    returned int 330
+ticket.printTicket();
+You must insert at least: 300 more pence.
+ticket.balanceUpdate(300);
+Received 300 pence
+Your Balance:300
+ticket.printTicket();
+
+ ##############################
+ #       BlueJ Trains         #
+ #  Train Tickets - PAY HERE  #
+ ##############################
+
+Your Train Ticket to 
+Amersham
+On Date: 27/Nov/2020
+Cost: 300pence
+
+ticket.PrintDestinations();
+
+ ##############################
+ #       BlueJ Trains         #
+ #  Train Tickets - PAY HERE  #
+ ##############################
+
+
+ Ticket to Aylesbury cost 220
+ Ticket to Amersham cost 300
+ Ticket to High Wycombe cost 330
