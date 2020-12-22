@@ -1,0 +1,189 @@
+StockBoss stockBos1 = new StockBoss();
+StockDemo stockDem1 = new StockDemo(stockBos1);
+stockDem1.runDemo();
+
+*******************************
+  Products Management System
+     by Connor Martin 
+*******************************
+
+100: Apple iPhone 11 stock amount: 0
+101: Samsung Galaxy S10 stock amount: 0
+102: Samsung Galaxy S20 stock amount: 0
+103: Gogle Pixel 4A stock amount: 0
+104: Motorola G8 Power Lite stock amount: 0
+105: Motorola G8 Power stock amount: 0
+106: Samsung Galaxy Note 7 stock amount: 0
+107: Huawei Mate 10 Pro stock amount: 0
+108: Sony Xperia XZ1 stock amount: 0
+109: Apple iPhone 11 stock amount: 0
+
+
+100: Apple iPhone 11 stock amount: 0
+    ** Re-Stocked by 4 ***
+100: Apple iPhone 11 stock amount: 4
+
+
+101: Samsung Galaxy S10 stock amount: 0
+    ** Re-Stocked by 5 ***
+101: Samsung Galaxy S10 stock amount: 5
+
+
+102: Samsung Galaxy S20 stock amount: 0
+    ** Re-Stocked by 3 ***
+102: Samsung Galaxy S20 stock amount: 3
+
+
+103: Gogle Pixel 4A stock amount: 0
+    ** Re-Stocked by 1 ***
+103: Gogle Pixel 4A stock amount: 1
+
+
+104: Motorola G8 Power Lite stock amount: 0
+    ** Re-Stocked by 6 ***
+104: Motorola G8 Power Lite stock amount: 6
+
+
+105: Motorola G8 Power stock amount: 0
+    ** Re-Stocked by 3 ***
+105: Motorola G8 Power stock amount: 3
+
+
+106: Samsung Galaxy Note 7 stock amount: 0
+    ** Re-Stocked by 5 ***
+106: Samsung Galaxy Note 7 stock amount: 5
+
+
+107: Huawei Mate 10 Pro stock amount: 0
+    ** Re-Stocked by 3 ***
+107: Huawei Mate 10 Pro stock amount: 3
+
+
+108: Sony Xperia XZ1 stock amount: 0
+    ** Re-Stocked by 4 ***
+108: Sony Xperia XZ1 stock amount: 4
+
+
+*******************************
+  Products Management System
+     by Connor Martin 
+*******************************
+
+100: Apple iPhone 11 stock amount: 4
+101: Samsung Galaxy S10 stock amount: 5
+102: Samsung Galaxy S20 stock amount: 3
+103: Gogle Pixel 4A stock amount: 1
+104: Motorola G8 Power Lite stock amount: 6
+105: Motorola G8 Power stock amount: 3
+106: Samsung Galaxy Note 7 stock amount: 5
+107: Huawei Mate 10 Pro stock amount: 3
+108: Sony Xperia XZ1 stock amount: 4
+109: Apple iPhone 11 stock amount: 0
+
+
+*******************************
+  Products Management System
+     by Connor Martin 
+*******************************
+
+100: Apple iPhone 11 stock amount: 4
+101: Samsung Galaxy S10 stock amount: 5
+102: Samsung Galaxy S20 stock amount: 3
+103: Gogle Pixel 4A stock amount: 1
+104: Motorola G8 Power Lite stock amount: 6
+105: Motorola G8 Power stock amount: 3
+106: Samsung Galaxy Note 7 stock amount: 5
+107: Huawei Mate 10 Pro stock amount: 3
+108: Sony Xperia XZ1 stock amount: 4
+109: Apple iPhone 11 stock amount: 0
+
+Selling Product: Order Quantity = 2
+100: Apple iPhone 11 stock amount: 4
+  2 items sold!
+
+Selling Product: Order Quantity = 5
+101: Samsung Galaxy S10 stock amount: 5
+  5 items sold!
+
+Selling Product: Order Quantity = 4
+102: Samsung Galaxy S20 stock amount: 3
+  3 items sold!
+
+Selling Product: Order Quantity = 2
+103: Gogle Pixel 4A stock amount: 1
+  1 items sold!
+
+Selling Product: Order Quantity = 1
+104: Motorola G8 Power Lite stock amount: 6
+  1 items sold!
+
+Selling Product: Order Quantity = 5
+105: Motorola G8 Power stock amount: 3
+  3 items sold!
+
+Selling Product: Order Quantity = 6
+106: Samsung Galaxy Note 7 stock amount: 5
+  5 items sold!
+
+Selling Product: Order Quantity = 1
+107: Huawei Mate 10 Pro stock amount: 3
+  1 items sold!
+
+Selling Product: Order Quantity = 3
+108: Sony Xperia XZ1 stock amount: 4
+  3 items sold!
+
+
+*******************************
+  Products Management System
+     by Connor Martin 
+*******************************
+
+100: Apple iPhone 11 stock amount: 2
+101: Samsung Galaxy S10 stock amount: 0
+102: Samsung Galaxy S20 stock amount: 0
+103: Gogle Pixel 4A stock amount: 0
+104: Motorola G8 Power Lite stock amount: 5
+105: Motorola G8 Power stock amount: 0
+106: Samsung Galaxy Note 7 stock amount: 0
+107: Huawei Mate 10 Pro stock amount: 2
+108: Sony Xperia XZ1 stock amount: 1
+109: Apple iPhone 11 stock amount: 0
+
+
+*******************************
+  Products Management System
+     by Connor Martin 
+*******************************
+
+100: Apple iPhone 11 stock amount: 2
+101: Samsung Galaxy S10 stock amount: 0
+102: Samsung Galaxy S20 stock amount: 0
+103: Gogle Pixel 4A stock amount: 0
+104: Motorola G8 Power Lite stock amount: 5
+105: Motorola G8 Power stock amount: 0
+106: Samsung Galaxy Note 7 stock amount: 0
+107: Huawei Mate 10 Pro stock amount: 2
+108: Sony Xperia XZ1 stock amount: 1
+109: Apple iPhone 11 stock amount: 0
+
+
+ Product ID 102 REMOVED!
+
+103: Gogle Pixel 4A stock amount: 0
+***RENAMED***
+103: Huawei Mate 10 Pro stock amount: 0
+stockBos1.takeDelivery(106, 1);
+
+106: Samsung Galaxy Note 7 stock amount: 0
+    ** Re-Stocked by 1 ***
+106: Samsung Galaxy Note 7 stock amount: 1
+
+stockBos1.removeProduct(100);
+
+ Product ID 100 REMOVED!
+
+stockBos1.renameProduct(103, "Google Pixel 4A ");
+103: Huawei Mate 10 Pro stock amount: 0
+***RENAMED***
+103: Google Pixel 4A  stock amount: 0

@@ -1,8 +1,11 @@
 /**
  * Model some details of a product sold by a company.
  * 
- * @author David J. Barnes and Michael Kölling.
- * @version 2016.02.29
+ * @author Connor Martin
+ * @version 2020.12.22
+ * 
+ * @modifed by Connor Martin
+ * 22/Dec/2020
  */
 public class Product
 {
@@ -55,14 +58,33 @@ public class Product
      */
     public String toString()
     {
-        return id + ": " +  name + " stock level: " + quantity;
+        return id + ": " +  name + " stock amount: " + quantity;
     }
 
     /**
-     * Restock with the given amount of this product.
-     * The current quantity is incremented by the given amount.
-     * @param amount The number of new items added to the stock.
-     *               This must be greater than zero.
+     * Sell one of these products.
+     * An error is reported if there appears to be no stock.
+     */
+    public boolean sellOne()
+    {
+        if(quantity > 0) 
+        {
+            quantity--;
+            return true;
+        }
+        else 
+        {
+            System.out.println(
+                "Attempt to sell an out of stock item: " + id + ":" + name);
+            
+                return false;
+        }
+    }
+    
+    /**
+     * Try to restock with a specific amount of said product.
+     * The current amount is incremented by the specific amount.
+     * The number of items is specifically added to the stock, thus it must be greater than zero.
      */
     public void increaseQuantity(int amount)
     {
@@ -72,25 +94,18 @@ public class Product
         }
         else 
         {
-            System.out.println("Attempt to restock " + name +
+            System.out.println("Try to restock " + name +
                                " with a non-positive amount: " + amount);
         }
     }
 
+
     /**
-     * Sell one of these products.
-     * An error is reported if there appears to be no stock.
+     * The products name should only be changed if there is
+     * a spelling mistake, otherwise it will cause confusion
      */
-    public void sellOne()
+    public void setName(String newName)
     {
-        if(quantity > 0) 
-        {
-            quantity--;
-        }
-        else 
-        {
-            System.out.println(
-                "Attempt to sell an out of stock item: " + name);
-        }
+        name = newName;
     }
 }
