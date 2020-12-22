@@ -1,0 +1,177 @@
+Student student1 = new Student("Test1", "1001");
+Course course1 = new Course("387", "Programming");
+student1.enrolOnCourse(course1);
+Module module1 = new Module("Programming Tables", "27b");
+module1.isComplete()
+    returned boolean false
+module1.getMark()
+    returned int -1
+module1.awardMark(45);
+module1.getMark()
+    returned int 45
+course1.addModule(1, module1);
+Module module2 = new Module("Module", "201");
+course1.addModule(2, module2);
+Module module3 = new Module("Module", "257");
+Module module4 = new Module("Module", "242");
+course1.addModule(3, module3);
+course1.addModule(4, module4);
+module4.awardMark(72);
+module1.print();
+	Module 27b
+ Programming Tables
+ mark = 45
+module4.print();
+	Module 242
+ Module
+ mark = 72
+course1.printGrade();
+You have not completed your course yet!
+course1.print();
+Course 387 - Programming
+
+	Module 27b
+ Programming Tables
+ mark = 45
+	Module 201
+ Module
+You have not completed yet!
+	Module 257
+ Module
+You have not completed yet!
+	Module 242
+ Module
+ mark = 72
+module2.awardMark(52);
+module3.awardMark(62);
+course1.printGrade();
+You have not completed your course yet!
+course1.print();
+Course 387 - Programming
+
+	Module 27b
+ Programming Tables
+ mark = 45
+	Module 201
+ Module
+ mark = 52
+	Module 257
+ Module
+ mark = 62
+	Module 242
+ Module
+ mark = 72
+student1.enrolOnCourse(course1);
+student1.printCourse();
+Course 387 - Programming
+
+	Module 27b
+ Programming Tables
+ mark = 45
+	Module 201
+ Module
+ mark = 52
+	Module 257
+ Module
+ mark = 62
+	Module 242
+ Module
+ mark = 72
+You have not completed your course yet!
+course1.printGrade();
+You have not completed your course yet!
+course1.print();
+Course 387 - Programming
+
+	Module 27b
+ Programming Tables
+ mark = 45
+	Module 201
+ Module
+ mark = 52
+	Module 257
+ Module
+ mark = 62
+	Module 242
+ Module
+ mark = 72
+Module module5 = new Module("test1", "287");
+course1.addModule(1, module5);
+course1.printGrade();
+course1.print();
+Course 387 - Programming
+
+	Module 287
+ test1
+You have not completed yet!
+	Module 201
+ Module
+ mark = 52
+	Module 257
+ Module
+ mark = 62
+	Module 242
+ Module
+ mark = 72
+module5.getMark()
+    returned int -1
+module5.awardMark(78);
+course1.print();
+Course 387 - Programming
+
+	Module 287
+ test1
+ mark = 78
+	Module 201
+ Module
+ mark = 52
+	Module 257
+ Module
+ mark = 62
+	Module 242
+ Module
+ mark = 72
+course1.printGrade();
+course1.printGrade();
+Module module6 = new Module("Test2", "575");
+course1.addModule(2, module6);
+Module module7 = new Module("Test3", "757");
+course1.addModule(3, module7);
+Module module8 = new Module("Test4", "231");
+course1.addModule(4, module8);
+course1.print();
+Course 387 - Programming
+
+	Module 287
+ test1
+ mark = 78
+	Module 575
+ Test2
+You have not completed yet!
+	Module 757
+ Test3
+You have not completed yet!
+	Module 231
+ Test4
+You have not completed yet!
+module6.awardMark(76);
+module7.awardMark(76);
+module8.awardMark(76);
+course1.print();
+Course 387 - Programming
+
+	Module 287
+ test1
+ mark = 78
+	Module 575
+ Test2
+ mark = 76
+	Module 757
+ Test3
+ mark = 76
+	Module 231
+ Test4
+ mark = 76
+course1.printGrade();
+student1.enrolOnCourse(course1);
+course1.printGrade();

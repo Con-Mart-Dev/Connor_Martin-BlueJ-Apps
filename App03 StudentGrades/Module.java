@@ -3,30 +3,41 @@
  * Write a description of class Module here.
  *
  * @author (Connor Martin)
- * @version (0.1 )
+ * @version (0.1 04/12/2020)
  */
 public class Module
 {
+    public static final int CREDIT = 30;
+    
     private String title;
     private String codeNo;
-    private int mark;
     
-    private boolean completed;
+    private int mark;
+    private boolean complete;
     
     /**
-     * Constructor for objects of class Module
+     * Constructor for holding if a module has been completed and its indentification
      */
     public Module(String title, String codeNo)
     {
-         mark = 0;
+         mark = -1;
          this.title = title;
          this.codeNo = codeNo;
-         completed = false;
+         complete = false;
     }
     
     public void print()
     {
-        System.out.println("Module: "+ codeNo + " " + title + " Mark = "+ mark); 
+        System.out.println("\tModule " + codeNo);
+        System.out.println(" " + title);
+        if(isComplete())
+        {
+            System.out.println(" mark = " + mark);
+        }
+        else
+        {
+            System.out.println("You have not completed yet!");
+        }
     }
     
     public void awardMark(int mark)
@@ -34,7 +45,7 @@ public class Module
         if ((mark >=0) && (mark <=100))
         {
             this.mark = mark;
-            if(mark >= 40)completed = true;
+            complete = true;
         }
         else
         {
@@ -42,29 +53,21 @@ public class Module
         }
     }
     
-    public String getTitle()
+    /**
+     * Returns mark between 0 and 100 if the mark is less than 0 then no mark has been given
+     */
+    public int getMark()
     {
-        return this.title;
+        return mark;
     }
     
-    public void setTitle(String title)
-    {
-        this.title = title;
-    }
-    
-    public void setCodeNo(String codeNo)
-    {
-        this.codeNo = codeNo;
-    }
-    
-    public void setMark(int mark)
-    {
-        this.mark = mark;
-    }
-    
+    /**
+     * Returns the mark after the module has been completed
+     */
     public boolean isComplete()
     {
-        return this.completed;
+        return complete;
     }
+    
     
 }

@@ -9,17 +9,23 @@
 public class Course
 {
     // instance variables - replace the example below with your own
+    public static final int MAX_MODULES = 4;
+    
     private String codeNo;
     private String title;
+    
+    private int noModules; 
+    private int totalScore; 
+    private int totalCredits;
+    private int meanMark;
+    
+    private boolean complete;
     
     private Module module1;
     private Module module2;
     private Module module3;
     private Module module4;
     
-    private int finalMark;
-        
-    private Grades finalgrade;
     /**
      * Constructor for objects of class Course
      */
@@ -29,75 +35,102 @@ public class Course
         this.codeNo = codeNo;
         this.title = title;
         
-        module1 = new Module("Programming Concepts", "CO452");
-        module1 = new Module("Computer Archtecture", "CO450");
-        module1 = new Module("3D Modeling", "CO455");
-        module1 = new Module("Web Development", "CO478");
-    }
-    
-    public void addmark(int mark, int codeNo)
-    {
-        if (codeNo == 1)
-        {
-            module1.awardMark(mark);
-        }
-        
-        if (codeNo == 2)
-        {
-            module2.awardMark(mark);
-        }
-        
-        if (codeNo == 3)
-        {
-            module3.awardMark(mark);
-        }
-        
-        if (codeNo == 4)
-        {
-            module4.awardMark(mark);
-        }
-        
-        if ((codeNo <1) && (codeNo >4))
-        {
-            System.out.println("Not a module from 1 - 4");
-        }
-        
+        noModules = 0;
+        totalScore = 0;
+        totalCredits = 0;
+        complete = false;
     }
     
     /**
-     * Prints out the details of a course
+     * Adds the ability to add 1 out of 4 modules
+     */
+    public void addModule(int number, Module module)
+    {
+        if((number >= 1) && (number <= MAX_MODULES)) noModules++;
+        
+        switch(number)
+        {
+            case 1: module1 = module; break;
+            case 2: module2 = module; break;
+            case 3: module3 = module; break;
+            case 4: module4 = module; break;
+        }
+    }
+    
+    /**
+     * Prints each module when selected
+     */
+    private void printModules()
+    {
+        if(module1 != null) module1.print();
+        if(module2 != null) module2.print();
+        if(module3 != null) module3.print();
+        if(module4 != null) module4.print();
+    }
+    
+    public void printGrade()
+    {
+        if(noModules == MAX_MODULES)
+        {
+            totalScore = 0;
+            
+            addMark(module1);
+            addMark(module2);
+            addMark(module3);
+            addMark(module4);
+            
+            if(totalCredits == MAX_MODULES * Module.CREDIT)
+            {
+                System.out.println("Your final mark is " + meanMark + " your final grade is " + calculateGrade());
+            }
+            else
+            {
+            System.out.println("You have not completed your course yet!");
+            }
+        }
+    }
+    
+    private void addMark(Module module)
+    {
+        if(module.isComplete())
+        {
+            totalScore = totalScore + module.getMark();
+            totalCredits += module.CREDIT;
+        }
+    }
+    
+    private String calculateGrade()
+    {
+        meanMark = totalScore / MAX_MODULES;
+        
+        if(meanMark <= 40)
+        {
+            return "F";
+        }
+        else if(meanMark <= 50)
+        {
+            return "D";
+        }
+        else if(meanMark <= 60)
+        {
+            return "C";
+        }
+        else if(meanMark <= 70)
+        {
+            return "B";
+        }
+        else return "A";
+    }
+    
+    
+    /**
+     * Prints prints out the courses details such as the specific course and its number
      */
     public void print()
     {
-        // put your code here
         System.out.println("Course " + codeNo + " - " + title);
+        System.out.println();
+        
+        printModules();
     }
-    
-    /**
-     * It takes the mark created and outputs a grade score from it.
-     */
-    public Grades convertToGrades(int mark)
-    {
-        if((mark >= 0) && (mark < 40))
-        {
-            return Grades.F;
-        }
-        else if((mark >= 40) && (mark < 50))
-        {
-            return Grades.D;
-        }
-        else if((mark >= 50) && (mark < 60))
-        {
-            return Grades.C;
-        }
-        else if((mark >= 60) && (mark < 70))
-        {
-            return Grades.B;
-        }
-        else if((mark >= 70) && (mark <= 100))
-        {
-            return Grades.A;
-        }
-        else return Grades.X;
-    }
-}
+}    
